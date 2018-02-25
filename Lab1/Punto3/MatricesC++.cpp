@@ -39,8 +39,41 @@ int main(){
   // printf("Seleccione el tamano de matrics \n");
   //int reg;
   // scanf("%i",&reg);
-  for(int i=0;i<500;i++){
-    printf("%d ", i);
-    printf("%.15f\n", matriz(i));
+  FILE *apf;
+  apf = fopen("matricesCPP.dat","w");
+  // printf("Seleccione el tamano de matrics \n");
+  int n = 300;
+  int r;
+
+  // scanf("%i",&reg);
+
+  double resultados[10][n];
+  double promedios[n];
+
+  for(int i=0;i<n;i++){
+    promedios[i] = 0;
   }
+
+  for(int i=0;i<10;i++){
+    for(int j=0;j<n;j++){
+      resultados[i][j] = matriz(j+1);
+    }
+  }
+
+  for(int i=0;i<n;i++){
+    for(int j=0;j<10;j++){
+      promedios[i] = promedios[i] + resultados[j][i]/10;
+    }
+  }
+
+  for(int i=0;i<n;i++){
+    //printf("%d ", i);
+    //printf("%.15f\n", promedios[i]);
+    char output[20];
+    snprintf(output, 20, "%i %.17f\n", i+1, promedios[i]);
+    r = fwrite(output,sizeof(output),1,apf);
+    fwrite("\n", sizeof("\n"), 1, apf);
+  }
+
+  r = fclose(apf);
 }
