@@ -72,11 +72,4 @@ int main(){
   }
 
   r = fclose(apf);
-
-  // for(int i=0;i<10;i++){
-  //   for(int j=0;j<n;j++){
-  //     printf("%d ", j);
-  //     printf("%.15f\n", resultados[i][j]);
-  //   }
-  // }
 }
