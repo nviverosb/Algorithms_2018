@@ -1,75 +1,66 @@
-package main;
+import java.math.BigInteger;
 
 public class Fibo {
 
 	public static void main(String[] args) {
 
-		System.out.println("Hello, World!");
-		for(int i=0;i<60;i++) {
-			System.out.println(i + " " +fiboLong(i));
+		//System.out.println("Hello, World!");
+		for(int i=0;i<10000;i++) {
+			System.out.println(i + " " +fiboLongLong(i));
 		}
 	}
 
-	//Broke at the 47th term
-	static int fiboInt(int n) {
-		if(n == 0){
-			return 0;
-		}
-		else if (n == 1)
-		{
-			return 1;
-		}
-		else
-		{
-			return(fiboInt(n - 1) + fiboInt(n - 2));
-		}
+	//Overflow at the 47th term
+	static int fiboInt(int n){
+
+	    int a=0,b=1,fibonacci;
+	    do{
+	        fibonacci=a+b;
+	        a=b;
+	        b=fibonacci;
+	        n--;
+	    }while(n>1);
+	    return fibonacci;
 	}
 
-	//Broke at the 24th term
+	//Overflow at the 24th term
 	static short fiboShort(int n){
 
-		if(n == 0){
-			return 0;
-		}
-		else if (n == 1)
-		{
-			return 1;
-		}
-		else
-		{
-			return (short) (fiboShort(n - 1) + fiboShort(n - 2));
-		}
+	    short a=0,b=1,fibonacci;
+	    do{
+	        fibonacci= (short) (a+b);
+	        a=b;
+	        b=fibonacci;
+	        n--;
+	    }while(n>1);
+	    return fibonacci;
 	}
 
-	//After a long time, stopped at term 50, no overflow
+	//Overflow at the 24th term
 	static long fiboLong(int n){
 
-		if(n == 0){
-			return 0;
-		}
-		else if (n == 1)
-		{
-			return 1;
-		}
-		else
-		{
-			return(fiboLong(n - 1) + fiboLong(n - 2));
-		}
+	    long a=0,b=1,fibonacci;
+	    do{
+	        fibonacci=a+b;
+	        a=b;
+	        b=fibonacci;
+	        n--;
+	    }while(n>1);
+	    return fibonacci;
 	}
 
-	//After a long time, stopped at term 50, no overflow
-	static long fiboLongLong(int n){
+	//No overflow produced at the 10000th term
+	static BigInteger fiboLongLong(int n){
 
-		if(n == 0){
-			return 0;
-		}
-		else if (n == 1)
-		{
-			return 1;
-		}
-		else
-		{
-			return(fiboLongLong(n - 1) + fiboLongLong(n - 2));
-		}
+		BigInteger a = BigInteger.valueOf(0);
+		BigInteger b = BigInteger.valueOf(1);
+	    BigInteger fibonacci = BigInteger.valueOf(0);
+	    do{
+	        fibonacci = a.add(b);
+	        a=b;
+	        b=fibonacci;
+	        n--;
+	    }while(n>1);
+	    return fibonacci;
 	}
 }
