@@ -3,71 +3,58 @@
 
 int fiboInt(int n){
 
-  if(n == 0){
-    return 0;
-  }
-  else if (n == 1)
-  {
-      return 1;
-  }
-  else
-  {
-      return(fiboInt(n - 1) + fiboInt(n - 2));
-  }
-  //Overflow produced at 47th value
+    int a=0,b=1,fibonacci;
+    do{
+        fibonacci=a+b;
+        a=b;
+        b=fibonacci;
+        n--;
+    }while(n>1);
+    return fibonacci;
 }
 
 short fiboShort(int n){
 
-  if(n == 0){
-    return 0;
-  }
-  else if (n == 1)
-  {
-      return 1;
-  }
-  else
-  {
-      return(fiboShort(n - 1) + fiboShort(n - 2));
-  }
+    short a=0,b=1,fibonacci;
+    do{
+        fibonacci=a+b;
+        a=b;
+        b=fibonacci;
+        n--;
+    }while(n>1);
+    return fibonacci;
   //Overflow produced at 24th value
 }
 
 long fiboLong(int n){
 
-  if(n == 0){
-    return 0;
-  }
-  else if (n == 1)
-  {
-      return 1;
-  }
-  else
-  {
-      return(fiboLong(n - 1) + fiboLong(n - 2));
-  }
-  //Overflow nor produced after a long time
+    long a=0,b=1,fibonacci;
+    do{
+        fibonacci=a+b;
+        a=b;
+        b=fibonacci;
+        n--;
+    }while(n>1);
+    return fibonacci;
+  //Overflow produced at 93th value
 }
 
 long long fiboLongLong(int n){
 
-  if(n == 0){
-    return 0;
-  }
-  else if (n == 1)
-  {
-      return 1;
-  }
-  else
-  {
-      return(fiboLongLong(n - 1) + fiboLongLong(n - 2));
-  }
-  //Overflow nor produced after a long time
+    long long a=0,b=1,fibonacci;
+    do{
+        fibonacci=a+b;
+        a=b;
+        b=fibonacci;
+        n--;
+    }while(n>1);
+    return fibonacci;
+  //Overflow produced at 93th value (Very strangely, at the same value as long)
 }
 
 int main(){
 
-  for(int i=0;i<100;i++){
-    printf("%d %lld\n",i ,fiboLongLong(i));
-  }
+    for(int i=0;i<200;i++){
+        printf("%d %lld\n",i ,fiboLongLong(i));
+    }
 }
