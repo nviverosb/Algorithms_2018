@@ -36,7 +36,7 @@ public class Fibo {
 	    return fibonacci;
 	}
 
-	//Overflow at the 24th term
+	//Overflow at the 93th term
 	static long fiboLong(int n){
 
 	    long a=0,b=1,fibonacci;
